@@ -24,7 +24,7 @@ module Twitter
         options[:maxResults] ||= MAX_TWEETS_PER_REQUEST
         options[:request_method] ||= :post
         options[:request_body] = :json if options[:request_method] == :post
-        request = Twitter::REST::Request.new(self, options.delete(:request_method), "/1.1/tweets/search/30day/#{dev_environment}.json", options.merge(query: query))
+        request = Twitter::REST::Request.new(self, options.delete(:request_method), "/1.1/tweets/search/fullarchive/prod.json", options.merge(query: query))
         Twitter::PremiumSearchResults.new(request)
       end
     end
